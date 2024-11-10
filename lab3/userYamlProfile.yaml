@@ -1,0 +1,17 @@
+{
+  "id": 3,
+  "firstName": "Артем",
+  "lastName": "Гуцул",
+  "messages": [
+    {
+      "subject": "message1",
+      "text": "java is cool",
+      "date": "2024-11-10T17:13:50.8899845"
+    },
+    {
+      "subject": "message2",
+      "text": "i love java",
+      "date": "2024-11-10T17:13:50.8899845"
+    }
+  ]
+}
