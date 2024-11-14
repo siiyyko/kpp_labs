@@ -9,10 +9,10 @@ public class Lab2 {
 
 	public static void main(String[] args) {
 		Timetable tt_weekly = SampleDataGenerator.generateWeeklyTimetable();
-		System.out.println("Weekly timetable: " + WorktimeCalculator.calculateWorktime(tt_weekly, "23.08.2023", "26.08.2023"));
+		System.out.println("A person with weekly timetable worked from 23.08.2023 to 26.08.2023 for: " + WorktimeCalculator.calculateWorktime(tt_weekly, "23.08.2023", "26.08.2023") + " hours.");
 		
 		Timetable tt_shifts = SampleDataGenerator.generateShiftsTimetable();
-		System.out.println("Shifts timetable: " + WorktimeCalculator.calculateWorktime(tt_shifts, "16.08.2023", "22.08.2023"));
+		System.out.println("A person with shifted timetable 3-3 worked from 16.08.2023 to 22.08.2023 for: " + WorktimeCalculator.calculateWorktime(tt_shifts, "16.08.2023", "22.08.2023") + " hours.");
 		
 		TextFileReader tfr = new TextFileReader("D:\\oleksii\\uni\\3COURSE\\1TERM\\KPP\\labs\\lab2\\src\\lab2\\Part2\\text.txt");
 		List<String> res = RegexSearcher.search(tfr.read(), "[^.!?]*[1-2]+[0-9]+[0-9]+[0-9]\\.([0-9]|0[1-9]|1[0-2])\\.(0[1-9]|[1-2][0-9]|(3[01]))[^.!?]*[.!?]");

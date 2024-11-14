@@ -3,22 +3,30 @@ package lab3;
 public class lab3 {
 
 	public static void main(String[] args) {
-			SampleDataGenerator.generateWithStreams();
 			
-			var readProfile = UserProfileReader.readUserProfile(".\\userProfile.dat");
+			SampleDataGenerator.generateWithNormalStreams();
 			
-			Printer.print(readProfile);
-			Printer.printList(readProfile.getMessages());
+			var readNormalProfile = UserProfileNormalIO.readUserProfile(".\\userProfile.ser");
+			Printer.print(readNormalProfile);
+			Printer.printList(readNormalProfile.getMessages());
+		
+			UserProfile.flipSerializeMessagesFlag();
+			SampleDataGenerator.generateWithBufferedStreams();
+			
+			var readBufferedProfile = UserProfileBufferedIO.readUserProfile(".\\userProfile.dat");
+			
+			Printer.print(readBufferedProfile);
+			Printer.printList(readBufferedProfile.getMessages());
 			
 			UserProfile.flipSerializeMessagesFlag();
 			
 			SampleDataGenerator.generateWithJSON();
-			var readJsonProfile = UserProfileJsonReader.readUserProfile(".\\userJsonProfile.json");
+			var readJsonProfile = UserProfileJsonIO.readUserProfile(".\\userJsonProfile.json");
 			Printer.print(readJsonProfile);
 			Printer.printList(readJsonProfile.getMessages());
 			
 			SampleDataGenerator.generateWithYAML();
-			var readYamlProfile = UserProfileYamlReader.readUserProfile(".\\userYamlProfile.yaml");
+			var readYamlProfile = UserProfileYamlIO.readUserProfile(".\\userYamlProfile.yaml");
 			Printer.print(readYamlProfile);
 			Printer.printList(readYamlProfile.getMessages());
 	}

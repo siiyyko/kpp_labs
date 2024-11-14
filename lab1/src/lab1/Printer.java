@@ -8,7 +8,7 @@ public class Printer {
 	public static void print(String header, List<Student> students) {
 		System.out.println(header);
 		for(var student : students) {
-			System.out.print(student + ", ");
+			System.out.print(student + String.format("(%3.3f)", student.calculateAverageMark()) + ", \n");
 		}
 		System.out.print("\n\n");
 	}

@@ -6,8 +6,10 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.google.gson.annotations.Expose;
 
+@JsonIgnoreProperties({"serializeMessages" })
 public class UserProfile implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -26,7 +28,7 @@ public class UserProfile implements Serializable {
     @Expose
     private List<Message> messages;
     
-    private transient static boolean serializeMessages = false;
+    private transient static boolean serializeMessages = true;
 
     public UserProfile(int id, String firstName, String lastName, String email, List<Message> messages) {
         this.id = id;
@@ -86,6 +88,7 @@ public class UserProfile implements Serializable {
             messages = List.of();
             out.defaultWriteObject();
             messages = originalMessages;
+            out.writeObject(email); 
     	}
     	else {
     		out.defaultWriteObject();
@@ -96,6 +99,7 @@ public class UserProfile implements Serializable {
         in.defaultReadObject();
         if(!serializeMessages) {
         	messages = List.of();
+        	email = (String) in.readObject();
         }
     }
 }

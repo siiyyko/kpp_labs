@@ -1,7 +1,6 @@
 package lab1;
 
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class lab1 {
@@ -51,20 +50,10 @@ public class lab1 {
 		
 		//testing optional there, we can get null student
 		//if subject does not exist (or they don't have marks on it)
-		var bestAverageStudentNullable = FunctionsHeap.getStudentWithBestAverageMark(students, "Mathhhhhhh");
+		var bestAverageStudentNullable = FunctionsHeap.getStudentWithBestAverageMark(students, "Math");
 		Printer.print("Student with the best average mark for the subject: ", bestAverageStudentNullable);
-		var bestAverageStudentNullableStream = FunctionsHeap.getStudentWithBestAverageMarkStream(students, "Mathh");
+		var bestAverageStudentNullableStream = FunctionsHeap.getStudentWithBestAverageMarkStream(students, "Math");
 		Printer.print("Student with the best average mark for the subject using stream: ", bestAverageStudentNullableStream);
-	
-		System.out.println(students.get(0).getMarks().get(0).getSubject());
-		System.out.println(students.get(0).getMarks().get(0).getRate());
-		int a = 5;
-		System.out.println(students.get(0).getMarks().get(0).getSubject() == "Math");
-		System.out.println(students.get(0).getMarks().get(0).getRate() == 5);
-		System.out.println(students.get(0).getMarks().get(0).getRate() == a);
-		
-		var entry = Map.entry(1, 2);
-		System.out.println(entry.getClass());
 
 	}
 
